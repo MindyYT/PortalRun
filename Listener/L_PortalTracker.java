@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
 
 import me.mindyyt.PortalRun.PortalRun;
 import net.md_5.bungee.api.ChatColor;
@@ -28,10 +29,11 @@ public class L_PortalTracker implements Listener{
 		Player p = e.getPlayer();
 		Action action = e.getAction();
 		
-		if(p.getItemInHand().getType() == Material.COMPASS){
+		// Check if the item in hand of player equals compass && the slot == hand
+		if(p.getItemInHand().getType() == Material.COMPASS && e.getHand().equals(EquipmentSlot.HAND)){
 			
 			// Check if the player made a rightclick
-			if(action == Action.RIGHT_CLICK_AIR){
+			if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK){
 				
 				// Get the location of the player
 				Location loc = p.getLocation();
@@ -59,7 +61,7 @@ public class L_PortalTracker implements Listener{
 							// Output for the player
 							if(beacon.getType() == Material.BEACON){
 								
-								// Check Playerpositon
+								// Check Player positon
 								int pLocX = p.getLocation().getBlockX();
 								int pLocZ = p.getLocation().getBlockZ();
 								int pLocY = p.getLocation().getBlockY();
@@ -101,11 +103,6 @@ public class L_PortalTracker implements Listener{
 						}
 					}
 				}
-				
-				
-				// Ausgabe zum Test
-				// p.sendMessage(" " + loc.getY());
-				
 			}
 		}
 	}	
