@@ -37,7 +37,7 @@ public class L_PortalTracker implements Listener{
 				
 				// Get the location of the player
 				Location loc = p.getLocation();
-				loc.setY(loc.getY() + 1);
+				
 				
 				// Set the min range around the player
 				int minX = p.getLocation().getBlockX() - 50;
