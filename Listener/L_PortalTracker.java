@@ -31,7 +31,7 @@ public class L_PortalTracker implements Listener{
 		if(p.getItemInHand().getType() == Material.COMPASS){
 			
 			// Check if the player made a rightclick
-			if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK){
+			if(action == Action.RIGHT_CLICK_AIR){
 				
 				// Get the location of the player
 				Location loc = p.getLocation();
