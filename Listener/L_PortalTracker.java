@@ -24,13 +24,14 @@ public class L_PortalTracker implements Listener{
 	@EventHandler
 	public void onCompassInteract(PlayerInteractEvent e){
 		
-		// Check, if Player has compass in hand
+		// Define Variables
 		Player p = e.getPlayer();
+		Action action = e.getAction();
 		
 		if(p.getItemInHand().getType() == Material.COMPASS){
 			
 			// Check if the player made a rightclick
-			if(e.getAction() == Action.RIGHT_CLICK_AIR){
+			if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK){
 				
 				// Get the location of the player
 				Location loc = p.getLocation();
