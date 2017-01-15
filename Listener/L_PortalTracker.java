@@ -90,15 +90,6 @@ public class L_PortalTracker implements Listener{
 								}else{
 									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
 								}
-								
-								// Y Axis
-								if(pLocY - bLocY > 20){
-									p.sendMessage(ChatColor.RED + "There is a portal nearby");
-								}else if(pLocY - bLocY <= 20 && pLocY - bLocY > 10){
-									p.sendMessage(ChatColor.YELLOW + "There is a portal nearby");
-								}else{
-									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
-								}
 							}
 						}
 					}
