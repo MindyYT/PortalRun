@@ -61,26 +61,37 @@ public class L_PortalTracker implements Listener{
 								// Check Playerpositon
 								int pLocX = p.getLocation().getBlockX();
 								int pLocZ = p.getLocation().getBlockZ();
+								int pLocY = p.getLocation().getBlockY();
 								
 								// Check Block location
 								int bLocX = beacon.getLocation().getBlockX();
 								int bLocZ = beacon.getLocation().getBlockZ();
+								int bLocY = beacon.getLocation().getBlockY();
 								
 								// Get the difference between player and beacon
 								
 								// X Axis
-								if(pLocX - bLocX > 40 || -(pLocX) - (-bLocX) > 40){
+								if(pLocX - bLocX > 50 || -(pLocX) - (-bLocX) > 50){
 									p.sendMessage(ChatColor.RED + "There is a portal nearby");
-								}else if(pLocX - bLocX <= 40 && pLocX - bLocX > 25 || (-pLocX) - (-bLocX) <= 40 && (-pLocX) - (-bLocX) > 25 ){
+								}else if(pLocX - bLocX <= 50 && pLocX - bLocX > 25 || (-pLocX) - (-bLocX) <= 50 && (-pLocX) - (-bLocX) > 25 ){
 									p.sendMessage(ChatColor.YELLOW + "There is a portal nearby");
 								}else{
 									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
 								}
 								
 								// Z Axis
-								if(pLocZ - bLocZ > 40 || -(pLocZ) - (-bLocZ) > 40){
+								if(pLocZ - bLocZ > 50 || -(pLocZ) - (-bLocZ) > 50){
 									p.sendMessage(ChatColor.RED + "There is a portal nearby");
-								}else if(pLocZ - bLocZ <= 40 && pLocZ - bLocZ > 25 || (-pLocZ) - (-bLocZ) <= 40 && (-pLocZ) - (-bLocZ) > 25 ){
+								}else if(pLocZ - bLocZ <= 50 && pLocZ - bLocZ > 25 || (-pLocZ) - (-bLocZ) <= 50 && (-pLocZ) - (-bLocZ) > 25 ){
+									p.sendMessage(ChatColor.YELLOW + "There is a portal nearby");
+								}else{
+									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
+								}
+								
+								// Y Axis
+								if(pLocY - bLocY > 20){
+									p.sendMessage(ChatColor.RED + "There is a portal nearby");
+								}else if(pLocY - bLocY <= 20 && pLocY - bLocY > 10){
 									p.sendMessage(ChatColor.YELLOW + "There is a portal nearby");
 								}else{
 									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
