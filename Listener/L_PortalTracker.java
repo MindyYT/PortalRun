@@ -78,8 +78,10 @@ public class L_PortalTracker implements Listener{
 									p.sendMessage(ChatColor.RED + "There is a portal nearby");
 								}else if(pLocX - bLocX <= 50 && pLocX - bLocX > 25 || (-pLocX) - (-bLocX) <= 50 && (-pLocX) - (-bLocX) > 25 ){
 									p.sendMessage(ChatColor.YELLOW + "There is a portal nearby");
-								}else{
+								}else if(pLocX - bLocX <= 25 && pLocX - bLocX >= 10 || (-pLocX) - (-bLocX) <= 25 && (-pLocX) - (-bLocX) >= 10 ){
 									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
+								}else{
+									p.sendMessage(ChatColor.GOLD + "You have reached the portal.");
 								}
 								
 								// Z Axis
@@ -87,8 +89,10 @@ public class L_PortalTracker implements Listener{
 									p.sendMessage(ChatColor.RED + "There is a portal nearby");
 								}else if(pLocZ - bLocZ <= 50 && pLocZ - bLocZ > 25 || (-pLocZ) - (-bLocZ) <= 50 && (-pLocZ) - (-bLocZ) > 25 ){
 									p.sendMessage(ChatColor.YELLOW + "There is a portal nearby");
-								}else{
+								}else if(pLocZ - bLocZ <= 25 && pLocZ - bLocZ >= 10 || (-pLocZ) - (-bLocZ) <= 25 && (-pLocZ) - (-bLocZ) >= 10 ){
 									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
+								}else{
+									p.sendMessage(ChatColor.GOLD + "You have reached the portal.");
 								}
 							}
 						}
