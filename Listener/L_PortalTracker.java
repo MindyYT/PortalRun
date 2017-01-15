@@ -81,7 +81,7 @@ public class L_PortalTracker implements Listener{
 								}else if(pLocX - bLocX <= 25 && pLocX - bLocX >= 10 || (-pLocX) - (-bLocX) <= 25 && (-pLocX) - (-bLocX) >= 10 ){
 									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
 								}else{
-									p.sendMessage(ChatColor.GOLD + "You have reached the portal.");
+									p.sendMessage(ChatColor.GOLD + "Portal in range.");
 								}
 								
 								// Z Axis
@@ -92,7 +92,7 @@ public class L_PortalTracker implements Listener{
 								}else if(pLocZ - bLocZ <= 25 && pLocZ - bLocZ >= 10 || (-pLocZ) - (-bLocZ) <= 25 && (-pLocZ) - (-bLocZ) >= 10 ){
 									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
 								}else{
-									p.sendMessage(ChatColor.GOLD + "You have reached the portal.");
+									p.sendMessage(ChatColor.GOLD + "Portal in range.");
 								}
 							}
 						}
