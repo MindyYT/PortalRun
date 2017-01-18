@@ -38,15 +38,14 @@ public class L_PortalTracker implements Listener{
 				// Get the location of the player
 				Location loc = p.getLocation();
 				
-				
 				// Set the min range around the player
 				int minX = p.getLocation().getBlockX() - 50;
-				int minY = p.getLocation().getBlockY() - 25;
+				int minY = p.getLocation().getBlockY() - 50;
 				int minZ = p.getLocation().getBlockZ() - 50;
 				
 				// Set the max range around the player
 				int maxX = p.getLocation().getBlockX() + 50;
-				int maxY = p.getLocation().getBlockY() + 25;
+				int maxY = p.getLocation().getBlockY() + 50;
 				int maxZ = p.getLocation().getBlockZ() + 50;
 				
 				// For loops for "scanning" the blocks
@@ -74,9 +73,7 @@ public class L_PortalTracker implements Listener{
 								// Get the difference between player and beacon
 								
 								// X Axis
-								if(pLocX - bLocX > 50 || -(pLocX) - (-bLocX) > 50){
-									p.sendMessage(ChatColor.RED + "There is a portal nearby");
-								}else if(pLocX - bLocX <= 50 && pLocX - bLocX > 25 || (-pLocX) - (-bLocX) <= 50 && (-pLocX) - (-bLocX) > 25 ){
+								if(pLocX - bLocX <= 50 && pLocX - bLocX > 25 || (-pLocX) - (-bLocX) <= 50 && (-pLocX) - (-bLocX) > 25 ){
 									p.sendMessage(ChatColor.YELLOW + "There is a portal nearby");
 								}else if(pLocX - bLocX <= 25 && pLocX - bLocX >= 10 || (-pLocX) - (-bLocX) <= 25 && (-pLocX) - (-bLocX) >= 10 ){
 									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
@@ -85,9 +82,7 @@ public class L_PortalTracker implements Listener{
 								}
 								
 								// Z Axis
-								if(pLocZ - bLocZ > 50 || -(pLocZ) - (-bLocZ) > 50){
-									p.sendMessage(ChatColor.RED + "There is a portal nearby");
-								}else if(pLocZ - bLocZ <= 50 && pLocZ - bLocZ > 25 || (-pLocZ) - (-bLocZ) <= 50 && (-pLocZ) - (-bLocZ) > 25 ){
+								if(pLocZ - bLocZ <= 50 && pLocZ - bLocZ > 25 || (-pLocZ) - (-bLocZ) <= 50 && (-pLocZ) - (-bLocZ) > 25 ){
 									p.sendMessage(ChatColor.YELLOW + "There is a portal nearby");
 								}else if(pLocZ - bLocZ <= 25 && pLocZ - bLocZ >= 10 || (-pLocZ) - (-bLocZ) <= 25 && (-pLocZ) - (-bLocZ) >= 10 ){
 									p.sendMessage(ChatColor.GREEN + "There is a portal nearby");
@@ -100,5 +95,5 @@ public class L_PortalTracker implements Listener{
 				}
 			}
 		}
-	}	
+	}
 }
