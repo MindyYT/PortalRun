@@ -82,7 +82,30 @@ public class L_PortalAction implements Listener{
 					
 					// Display the inventory to the player
 					e.getPlayer().openInventory(inv);
-				}	
+					
+					// Inventory if the clicked block == glas
+				}else if(e.getClickedBlock().getType() == Material.GLASS){
+					// Hack Item
+					ItemStack hack = new ItemStack(Material.GOLD_BLOCK);
+					ItemMeta hackMeta = hack.getItemMeta();
+					hackMeta.setDisplayName(ChatColor.AQUA + "Hack");
+					hack.setItemMeta(hackMeta);
+					
+					// Deploy Item
+					ItemStack deploy = new ItemStack(Material.DIAMOND_BLOCK);
+					ItemMeta deployMeta = deploy.getItemMeta();
+					deployMeta.setDisplayName(ChatColor.YELLOW + "Deploy");
+					deploy.setItemMeta(deployMeta);
+					
+					Inventory inv = Bukkit.createInventory(null, 27, "Portal Menu");
+					
+					// Creating Clickable Items
+					inv.setItem(4, hack);
+					inv.setItem(12, deploy);
+					
+					// Display the inventory to the player
+					e.getPlayer().openInventory(inv);
+				}
 			}
 		}	
 	}
@@ -148,6 +171,13 @@ public class L_PortalAction implements Listener{
 							
 				// Placeholder
 				player.sendMessage(ChatColor.GRAY + "You recharged the portal.");;
+			}
+			
+			// Recharge
+			if(b == Material.EMERALD_BLOCK && click == true){
+										
+				// Placeholder
+				player.sendMessage(ChatColor.GRAY + "Do you have any key of any portals?.");;
 			}
 		}
 	}
