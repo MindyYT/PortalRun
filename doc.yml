@@ -21,3 +21,6 @@ Portal:
 - Adding action, when player clicks on "hack" or "recharge"
 
 Fixes:
+- Adding else if for what block is clicked
+	if STAINED GLASS = full PortalMenu
+	if GLASS = PortalMenu only Hack and Deploy
