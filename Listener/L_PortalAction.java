@@ -79,6 +79,7 @@ public class L_PortalAction implements Listener{
 					inv.setItem(14, setMod);
 					inv.setItem(22, recharge);
 					
+					
 					// Display the inventory to the player
 					e.getPlayer().openInventory(inv);
 				}	
@@ -94,26 +95,59 @@ public class L_PortalAction implements Listener{
 		// Get the player
 		Player player = (Player) e.getWhoClicked();
 		Material b = e.getCurrentItem().getType();
-		boolean click = e.getClick().isRightClick();
+		boolean click = e.getClick().isRightClick() || e.getClick().isLeftClick();
 		
-		// Inventar "dicht" machen das der Block nicht verrückbar ist
-		if(e.getInventory().getName().equals("Portal Menu")){
+		// Inventar "dicht" machen dass der Block nicht verrückbar ist
+		if(e.getInventory().getName().equals("Portal Menu") || e.getInventory().getName().equals("Deploy") || e.getInventory().getName().equals("Mods")){
 			e.setCancelled(true);
 			
 			// Action at Itemclick
+			
+			// Hack
+			if(b == Material.GOLD_BLOCK && click == true){
+				
+				// Placeholder for action
+				player.sendMessage(ChatColor.YELLOW + "You hacked the portal.");;
+			}
+			
+			
 			// Deploy
 			if(b == Material.DIAMOND_BLOCK && click == true){
+				
+				
 				Inventory deploy = Bukkit.createInventory(null, 9, "Deploy");
 				
-				player.sendMessage("Deployed a resonator in this portal");
+				//Testitem
+				ItemStack deployReso = new ItemStack(Material.APPLE);
+				ItemMeta deployResoMeta = deployReso.getItemMeta();
+				deployResoMeta.setDisplayName(ChatColor.LIGHT_PURPLE + "Eat an apple :D");
+				deployReso.setItemMeta(deployResoMeta);
 				
+				deploy.setItem(0, deployReso);
+				
+				player.openInventory(deploy);
 			}
+			
 			// Mods
 			if(b == Material.IRON_BLOCK && click == true){
-				Inventory mods = Bukkit.createInventory(null, 9, "MOds");
+				Inventory mods = Bukkit.createInventory(null, 9, "Mods");
 				
-				player.sendMessage("Deployed a mod in this portal");
+				// Testitem
+				ItemStack deployMod = new ItemStack(Material.APPLE);
+				ItemMeta deployModMeta = deployMod.getItemMeta();
+				deployModMeta.setDisplayName(ChatColor.LIGHT_PURPLE + "Eat an apple :D");
+				deployMod.setItemMeta(deployModMeta);
 				
+				mods.setItem(0, deployMod);
+				
+				player.openInventory(mods);
+			}
+			
+			// Recharge
+			if(b == Material.REDSTONE_BLOCK && click == true){
+							
+				// Placeholder
+				player.sendMessage(ChatColor.GRAY + "You recharged the portal.");;
 			}
 		}
 	}
