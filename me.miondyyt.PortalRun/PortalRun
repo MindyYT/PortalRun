@@ -1,0 +1,54 @@
+package me.mindyyt.PortalRun;
+
+// Package imports
+import java.util.logging.Logger;
+import org.bukkit.plugin.java.JavaPlugin;
+
+// Class imports
+import Listener.L_testListener;
+import Listener.L_PortalAction;
+import Listener.L_PortalTracker;
+
+
+public class PortalRun extends JavaPlugin {
+
+	// OnEnable
+	public void onEnable(){
+		getListener();
+		getCommands();
+		this.getLogger().info("Your plugin was enabled.");
+	}
+	
+	// OnDisable
+	public void onDisable(){
+		this.getLogger().info("Your plugin was Disabled.");
+	}
+	
+	// Listener
+	
+	/*
+	 * This method contains all listener for the plugin
+	 */
+	private void getListener(){
+		// PlayerJoin Listener
+		// this.getServer().getPluginManager().registerEvents(new L_joinPlayer(this), this);
+		
+		// PortalTracker Listener
+		this.getServer().getPluginManager().registerEvents(new L_PortalTracker(this), this);
+		
+		// PortalAction Listener
+		this.getServer().getPluginManager().registerEvents(new L_PortalAction(this), this);
+		
+		// Testlistener
+		this.getServer().getPluginManager().registerEvents(new L_testListener(this), this);
+	}
+	
+	//Commands
+	/*
+	 * This method contains all commands for the plugin
+	 */
+	private void getCommands(){
+		
+	}
+	
+}
