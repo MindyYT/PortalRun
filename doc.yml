@@ -16,6 +16,8 @@ dev 0.1b:
 
 Portal:
 - adding an inventory to the portal
-- 4 different blocks for 4 different actiosn
+- 4 different blocks for 4 different actions
+- Adding inventory for "deploy" and "mods" actions
+- Adding action, when player clicks on "hack" or "recharge"
 
 Fixes:
