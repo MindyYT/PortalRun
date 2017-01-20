@@ -22,5 +22,5 @@ Portal:
 
 Fixes:
 - Adding else if for what block is clicked
-	if STAINED GLASS = full PortalMenu
-	if GLASS = PortalMenu only Hack and Deploy
+	if STAINED GLASS blue / green= full PortalMenu
+	if STAINED GLASS white  = PortalMenu only Hack and Deploy
