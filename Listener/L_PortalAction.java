@@ -1,7 +1,9 @@
 package Listener;
 
 import org.bukkit.Bukkit;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,6 +14,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.fusesource.jansi.Ansi.Color;
 
 import me.mindyyt.PortalRun.PortalRun;
 import net.md_5.bungee.api.ChatColor;
@@ -34,10 +37,14 @@ public class L_PortalAction implements Listener{
 		 */
 		if(e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getHand().equals(EquipmentSlot.HAND)){
 			if(e.getPlayer().getItemInHand().getType() == Material.WATCH){
-				if(e.getClickedBlock().getType() == Material.STAINED_GLASS){
+				if(e.getClickedBlock().getType() == Material.STAINED_GLASS && e.getClickedBlock().getData() == (byte)11 || e.getClickedBlock().getData() == (byte)13){
 					/*
 					 * Create an inventory with 5 items for portal actions
 					 */
+					
+					// TestCode
+					
+					
 					
 					// Hack Item
 					ItemStack hack = new ItemStack(Material.GOLD_BLOCK);
@@ -84,7 +91,8 @@ public class L_PortalAction implements Listener{
 					e.getPlayer().openInventory(inv);
 					
 					// Inventory if the clicked block == glas
-				}else if(e.getClickedBlock().getType() == Material.GLASS){
+				}else if(e.getClickedBlock().getType() == Material.STAINED_GLASS && e.getClickedBlock().getData() == (byte)0){
+					
 					// Hack Item
 					ItemStack hack = new ItemStack(Material.GOLD_BLOCK);
 					ItemMeta hackMeta = hack.getItemMeta();
@@ -101,7 +109,7 @@ public class L_PortalAction implements Listener{
 					
 					// Creating Clickable Items
 					inv.setItem(4, hack);
-					inv.setItem(12, deploy);
+					inv.setItem(22, deploy);
 					
 					// Display the inventory to the player
 					e.getPlayer().openInventory(inv);
