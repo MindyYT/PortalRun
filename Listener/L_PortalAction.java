@@ -1,9 +1,9 @@
 package Listener;
 
+import java.util.ArrayList;
+
 import org.bukkit.Bukkit;
-import org.bukkit.DyeColor;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,7 +14,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.fusesource.jansi.Ansi.Color;
+
 
 import me.mindyyt.PortalRun.PortalRun;
 import net.md_5.bungee.api.ChatColor;
@@ -41,9 +41,6 @@ public class L_PortalAction implements Listener{
 					/*
 					 * Create an inventory with 5 items for portal actions
 					 */
-					
-					// TestCode
-					
 					
 					
 					// Hack Item
@@ -132,13 +129,60 @@ public class L_PortalAction implements Listener{
 		if(e.getInventory().getName().equals("Portal Menu") || e.getInventory().getName().equals("Deploy") || e.getInventory().getName().equals("Mods")){
 			e.setCancelled(true);
 			
-			// Action at Itemclick
+			// Action on Itemclick
 			
 			// Hack
 			if(b == Material.GOLD_BLOCK && click == true){
 				
+				// Items for the ArrayList
+				
+				//Resonator
+				ItemStack reso = new ItemStack(Material.COAL);
+				ItemMeta resoMeta = reso.getItemMeta();
+				resoMeta.setDisplayName("Resonator");
+				reso.setItemMeta(resoMeta);
+				
+				// Mod
+				ItemStack shield = new ItemStack(Material.DIAMOND);
+				ItemMeta shieldMeta = shield.getItemMeta();
+				shieldMeta.setDisplayName("Shield");
+				shield.setItemMeta(shieldMeta);
+				
+				// Key
+				ItemStack key = new ItemStack(Material.EMERALD);
+				ItemMeta keyMeta = key.getItemMeta();
+				keyMeta.setDisplayName("Key");
+				key.setItemMeta(keyMeta);
+				
+				// Burster
+				ItemStack burster = new ItemStack(Material.ARROW);
+				ItemMeta bursterMeta = key.getItemMeta();
+				bursterMeta.setDisplayName("Burster");
+				burster.setItemMeta(bursterMeta);
+				
+				// ArrayList for the loot
+				ArrayList<ItemStack> items = new ArrayList();
+				items.add(reso);
+				items.add(shield);
+				items.add(key);
+				items.add(burster);
+				
+				
+				player.getInventory().addItem(reso);
+				player.getInventory().addItem(shield);
+				player.getInventory().addItem(key);
+				player.getInventory().addItem(burster);
+				
+				
 				// Placeholder for action
-				player.sendMessage(ChatColor.YELLOW + "You hacked the portal.");;
+				player.sendMessage(ChatColor.GREEN + "You successfully hacked the portal.");
+				player.sendMessage(ChatColor.GRAY + "The hack requires the following items: ");
+				player.sendMessage(ChatColor.GRAY + " " + items.get(0).getItemMeta().getDisplayName());
+				player.sendMessage(ChatColor.GRAY + " " + items.get(1).getItemMeta().getDisplayName());
+				player.sendMessage(ChatColor.GRAY + " " + items.get(2).getItemMeta().getDisplayName());
+				player.sendMessage(ChatColor.GRAY + " " + items.get(3).getItemMeta().getDisplayName());
+				player.sendMessage(ChatColor.GRAY + " " + items.get(4).getItemMeta().getDisplayName());
+				
 			}
 			
 			
@@ -156,7 +200,10 @@ public class L_PortalAction implements Listener{
 				
 				deploy.setItem(0, deployReso);
 				
+				
 				player.openInventory(deploy);
+				
+				
 			}
 			
 			// Mods
