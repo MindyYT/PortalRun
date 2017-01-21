@@ -1,6 +1,7 @@
 package Listener;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -167,7 +168,15 @@ public class L_PortalAction implements Listener{
 				items.add(key);
 				items.add(burster);
 				
+				//Random Generator
+				for(int x = 0; x < items.size(); x++){
+					Random rand = new Random();
+					int randNum = rand.nextInt(5);
+					items.get(x).setAmount(randNum);
+					
+				}
 				
+				// Player gets the items
 				player.getInventory().addItem(reso);
 				player.getInventory().addItem(shield);
 				player.getInventory().addItem(key);
@@ -177,11 +186,11 @@ public class L_PortalAction implements Listener{
 				// Placeholder for action
 				player.sendMessage(ChatColor.GREEN + "You successfully hacked the portal.");
 				player.sendMessage(ChatColor.GRAY + "The hack requires the following items: ");
-				player.sendMessage(ChatColor.GRAY + " " + items.get(0).getItemMeta().getDisplayName());
-				player.sendMessage(ChatColor.GRAY + " " + items.get(1).getItemMeta().getDisplayName());
-				player.sendMessage(ChatColor.GRAY + " " + items.get(2).getItemMeta().getDisplayName());
-				player.sendMessage(ChatColor.GRAY + " " + items.get(3).getItemMeta().getDisplayName());
-				player.sendMessage(ChatColor.GRAY + " " + items.get(4).getItemMeta().getDisplayName());
+				player.sendMessage(ChatColor.GRAY + " " + items.get(0).getAmount() + " " + items.get(0).getItemMeta().getDisplayName());
+				player.sendMessage(ChatColor.GRAY + " " + items.get(1).getAmount() + " " + items.get(1).getItemMeta().getDisplayName());
+				player.sendMessage(ChatColor.GRAY + " " + items.get(2).getAmount() + " " + items.get(2).getItemMeta().getDisplayName());
+				player.sendMessage(ChatColor.GRAY + " " + items.get(3).getAmount() + " " + items.get(3).getItemMeta().getDisplayName());
+				player.sendMessage(ChatColor.GRAY + " " + items.get(4).getAmount() + " " + items.get(4).getItemMeta().getDisplayName());
 				
 			}
 			
