@@ -1,0 +1,17 @@
+package Listener;
+
+import org.bukkit.event.Listener;
+
+import me.mindyyt.PortalRun.PortalRun;
+
+public class L_buildPortal implements Listener{
+
+	// Instanzsetzung der Klasse, zum einbinden in die Main
+	private PortalRun plugin;
+	public L_buildPortal(PortalRun pr){
+		pr = plugin;
+	}
+	
+	
+	
+}
