@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import Listener.L_testListener;
 import Listener.L_PortalAction;
 import Listener.L_PortalTracker;
+import Listener.L_buildPortal;
 
 
 public class PortalRun extends JavaPlugin {
@@ -38,6 +39,9 @@ public class PortalRun extends JavaPlugin {
 		
 		// PortalAction Listener
 		this.getServer().getPluginManager().registerEvents(new L_PortalAction(this), this);
+		
+		// buildPortal Listener
+		this.getServer().getPluginManager().registerEvents(new L_buildPortal(this), this);
 		
 		// Testlistener
 		this.getServer().getPluginManager().registerEvents(new L_testListener(this), this);
