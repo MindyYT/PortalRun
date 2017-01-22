@@ -175,7 +175,7 @@ public class L_PortalAction implements Listener{
 					// Rnd Gen for items
 					int randReso = rand.nextInt(4);
 					int randShield = rand.nextInt(2);
-					int randKeys = rand.nextInt(1);
+					int randKeys = rand.nextInt(2);
 					int randBurster = rand.nextInt(4);
 					
 					items.get(0).setAmount(randReso);
