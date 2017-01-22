@@ -171,9 +171,17 @@ public class L_PortalAction implements Listener{
 				//Random Generator
 				for(int x = 0; x < items.size(); x++){
 					Random rand = new Random();
-					int randNum = rand.nextInt(5);
-					items.get(x).setAmount(randNum);
 					
+					// Rnd Gen for items
+					int randReso = rand.nextInt(4);
+					int randShield = rand.nextInt(2);
+					int randKeys = rand.nextInt(1);
+					int randBurster = rand.nextInt(4);
+					
+					items.get(0).setAmount(randReso);
+					items.get(1).setAmount(randShield);
+					items.get(2).setAmount(randKeys);
+					items.get(3).setAmount(randBurster);	
 				}
 				
 				// Player gets the items
@@ -183,21 +191,19 @@ public class L_PortalAction implements Listener{
 				player.getInventory().addItem(burster);
 				
 				
-				// Placeholder for action
+				// Output in chat
 				player.sendMessage(ChatColor.GREEN + "You successfully hacked the portal.");
 				player.sendMessage(ChatColor.GRAY + "The hack requires the following items: ");
 				player.sendMessage(ChatColor.GRAY + " " + items.get(0).getAmount() + " " + items.get(0).getItemMeta().getDisplayName());
 				player.sendMessage(ChatColor.GRAY + " " + items.get(1).getAmount() + " " + items.get(1).getItemMeta().getDisplayName());
 				player.sendMessage(ChatColor.GRAY + " " + items.get(2).getAmount() + " " + items.get(2).getItemMeta().getDisplayName());
 				player.sendMessage(ChatColor.GRAY + " " + items.get(3).getAmount() + " " + items.get(3).getItemMeta().getDisplayName());
-				player.sendMessage(ChatColor.GRAY + " " + items.get(4).getAmount() + " " + items.get(4).getItemMeta().getDisplayName());
+				
 				
 			}
 			
-			
 			// Deploy
 			if(b == Material.DIAMOND_BLOCK && click == true){
-				
 				
 				Inventory deploy = Bukkit.createInventory(null, 9, "Deploy");
 				
@@ -211,7 +217,6 @@ public class L_PortalAction implements Listener{
 				
 				
 				player.openInventory(deploy);
-				
 				
 			}
 			
