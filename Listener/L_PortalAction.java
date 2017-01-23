@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,10 +16,14 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import net.md_5.bungee.api.ChatColor;
 
 
 import me.mindyyt.PortalRun.PortalRun;
-import net.md_5.bungee.api.ChatColor;
+
 
 public class L_PortalAction implements Listener{
 	// Instance of the main class
@@ -198,6 +203,21 @@ public class L_PortalAction implements Listener{
 				player.sendMessage(ChatColor.GRAY + " " + items.get(1).getAmount() + " " + items.get(1).getItemMeta().getDisplayName());
 				player.sendMessage(ChatColor.GRAY + " " + items.get(2).getAmount() + " " + items.get(2).getItemMeta().getDisplayName());
 				player.sendMessage(ChatColor.GRAY + " " + items.get(3).getAmount() + " " + items.get(3).getItemMeta().getDisplayName());
+				
+				new BukkitRunnable(){
+					
+					private int countdown = 5;
+					@Override
+					public void run() {
+						if(countdown > 0){
+							player.sendMessage("Countdown: " + countdown);
+							countdown--;
+						}else{
+							cancel();
+						}
+					}
+					
+				}.runTaskTimer(plugin, 0, 20);
 				
 				
 			}
